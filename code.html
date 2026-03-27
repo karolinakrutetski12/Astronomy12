@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Celestial Observer | Explore the Cosmos</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "inverse-surface": "#fbf8ff",
+                        "secondary": "#e4b5ff",
+                        "on-background": "#e1e4fe",
+                        "on-error-container": "#ff9993",
+                        "primary": "#81ecff",
+                        "tertiary-fixed": "#e4d7fd",
+                        "secondary-dim": "#c97dfa",
+                        "on-primary-fixed-variant": "#005762",
+                        "secondary-container": "#3e0061",
+                        "tertiary-container": "#e4d7fd",
+                        "surface-container-low": "#10131f",
+                        "error-container": "#8a1a1e",
+                        "surface": "#0c0e18",
+                        "on-secondary-container": "#cf84ff",
+                        "error": "#ff716c",
+                        "on-tertiary-fixed-variant": "#5d5372",
+                        "surface-container-lowest": "#000000",
+                        "primary-fixed": "#00e3fd",
+                        "tertiary": "#f1e7ff",
+                        "on-tertiary-fixed": "#403755",
+                        "error-dim": "#c94947",
+                        "outline": "#71748b",
+                        "surface-dim": "#0c0e18",
+                        "secondary-fixed-dim": "#ecc7ff",
+                        "surface-container": "#161927",
+                        "primary-container": "#00e3fd",
+                        "on-primary-fixed": "#003840",
+                        "on-surface-variant": "#a7aac2",
+                        "surface-bright": "#262b41",
+                        "surface-container-high": "#1b1f2f",
+                        "on-primary-container": "#004d57",
+                        "background": "#0c0e18",
+                        "on-secondary-fixed-variant": "#8137b1",
+                        "on-secondary": "#631093",
+                        "on-error": "#490006",
+                        "surface-container-highest": "#212538",
+                        "outline-variant": "#43475c",
+                        "inverse-primary": "#006976",
+                        "on-surface": "#e1e4fe",
+                        "on-tertiary-container": "#534968",
+                        "tertiary-fixed-dim": "#d6c9ee",
+                        "surface-tint": "#81ecff",
+                        "secondary-fixed": "#f4d9ff",
+                        "on-secondary-fixed": "#620e92",
+                        "on-primary": "#005762",
+                        "inverse-on-surface": "#535461",
+                        "primary-dim": "#00d4ec",
+                        "on-tertiary": "#5c5271",
+                        "surface-variant": "#212538",
+                        "tertiary-dim": "#d6c9ee",
+                        "primary-fixed-dim": "#00d4ec"
+                    },
+                    fontFamily: {
+                        "headline": ["Space Grotesk"],
+                        "body": ["Inter"],
+                        "label": ["Inter"]
+                    },
+                    borderRadius: {"DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px"},
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-nebula {
+            background-image: radial-gradient(circle at 20% 30%, rgba(129, 236, 255, 0.05) 0%, transparent 50%),
+                              radial-gradient(circle at 80% 70%, rgba(228, 181, 255, 0.05) 0%, transparent 50%);
+        }
+        .glass-panel {
+            backdrop-filter: blur(20px);
+            background: rgba(22, 25, 39, 0.6);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 bg-[#0c0e18]/80 backdrop-blur-xl font-['Space_Grotesk'] tracking-tight no-border tonal-shift bg-[#10131f]/40">
+<div class="flex justify-between items-center px-10 py-4 max-w-[1440px] mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-cyan-400 hover:drop-shadow-[0_0_8px_rgba(129,236,255,0.6)]">
+                Celestial Observer
+            </div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-cyan-400 border-b-2 border-cyan-400 pb-1" href="#">Observatory</a>
+<a class="text-slate-400 hover:text-cyan-200 transition-colors" href="#">Star Map</a>
+<a class="text-slate-400 hover:text-cyan-200 transition-colors" href="#">Events</a>
+<a class="text-slate-400 hover:text-cyan-200 transition-colors" href="#">Research</a>
+<a class="text-slate-400 hover:text-cyan-200 transition-colors" href="#">Gallery</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:block relative">
+<span class="material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-sm">search</span>
+<input class="bg-surface-container-highest border-none rounded-full py-2 pl-10 pr-4 text-sm focus:ring-1 focus:ring-primary/40 w-48" placeholder="Search constellations..." type="text"/>
+</div>
+<button class="bg-gradient-to-r from-primary to-primary-dim text-on-primary font-medium py-2 px-6 rounded-xl hover:shadow-[0_0_20px_rgba(129,236,255,0.3)] transition-all duration-300 scale-95 hover:scale-100">
+                    Join Club
+                </button>
+</div>
+</div>
+</nav>
+<main class="bg-nebula">
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center px-10 pt-20 overflow-hidden">
+<div class="max-w-[1440px] mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10">
+<div class="lg:col-span-8 z-10">
+<span class="inline-block py-1 px-4 rounded-full bg-secondary-container text-secondary text-xs font-medium mb-6 tracking-widest uppercase">Deep Space Exploration</span>
+<h1 class="font-headline text-6xl md:text-8xl font-bold tracking-tighter leading-none mb-8 text-on-surface drop-shadow-2xl">
+                        Explore the <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-primary-dim">Cosmos</span>
+</h1>
+<p class="text-xl text-on-surface-variant max-w-2xl mb-12 leading-relaxed">
+                        Journey through the vast silence of the universe. Join a community of stargazers, researchers, and dreamers as we decode the light from distant galaxies and map the infinite void.
+                    </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-gradient-to-br from-primary to-primary-dim text-on-primary px-8 py-4 rounded-xl font-bold text-lg hover:shadow-[0_0_30px_rgba(129,236,255,0.4)] transition-all">
+                            Start Observing
+                        </button>
+<button class="border border-outline-variant/20 bg-surface-bright/10 hover:bg-surface-bright/20 px-8 py-4 rounded-xl font-bold text-lg backdrop-blur-md transition-all">
+                            View Star Map
+                        </button>
+</div>
+</div>
+<div class="lg:col-span-4 relative hidden lg:flex items-center justify-center">
+<div class="absolute w-[500px] h-[500px] bg-primary/10 rounded-full blur-[120px]"></div>
+<img alt="Satellite image of Earth from orbit" class="w-full h-auto object-contain rounded-3xl relative z-10 drop-shadow-[0_0_50px_rgba(129,236,255,0.2)]" data-alt="stunning cinematic view of a distant blue planet and spiraling galaxy with vibrant interstellar gas clouds in deep blue and violet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDCqvj9KCkYZAmOPocNTRHjKfUBsoa_pSWnvMi0Ye1V2twEBIFNba2yzu5gD06k65sMZqefvI8QQg7RuuS5JDtPRnfNipBA_1ubXQ0IMZ7mr7Kf3uDJ50rLmW4X6Tc4bOw4SkGQvkd87IvEh5yVyCKn1eR_YBq6odWCWweSEio672Qo-vO9JpwdMZOghpwb8Poc1vesxzY4rqqEqjVFhuwPprMDSZde7n-XeSqJ9Kpe22t9NwWhf9Fya5jQbA4y_1WUgxUMwjqj2LY"/>
+</div>
+</div>
+</section>
+<!-- Evening Observation Schedule -->
+<section class="py-24 px-10">
+<div class="max-w-[1440px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+<div class="max-w-2xl">
+<h2 class="font-headline text-4xl font-bold mb-4">Evening Observation</h2>
+<p class="text-on-surface-variant">Check our upcoming window for celestial events. Our high-resolution telescopes are calibrated for these specific coordinates this month.</p>
+</div>
+<a class="text-primary hover:underline flex items-center gap-2 font-medium" href="#">Full Calendar <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Schedule Cards -->
+<div class="bg-surface-container p-8 rounded-xl hover:bg-surface-container-high transition-all group">
+<div class="text-secondary font-headline text-sm font-bold tracking-widest uppercase mb-4">Oct 14, 2024</div>
+<h3 class="text-2xl font-bold mb-2">Andromeda Galaxy</h3>
+<p class="text-on-surface-variant text-sm mb-6">Visible with clear visibility after 22:00. Peak altitude 65°.</p>
+<div class="flex items-center gap-2 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm">satellite</span>
+                            MAIN OBSERVATORY
+                        </div>
+</div>
+<div class="bg-surface-container p-8 rounded-xl hover:bg-surface-container-high transition-all group">
+<div class="text-secondary font-headline text-sm font-bold tracking-widest uppercase mb-4">Oct 18, 2024</div>
+<h3 class="text-2xl font-bold mb-2">Saturn's Rings</h3>
+<p class="text-on-surface-variant text-sm mb-6">Opposition night. Exceptional detail on the Cassini Division.</p>
+<div class="flex items-center gap-2 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm">location_on</span>
+                            NORTH RIDGE FIELD
+                        </div>
+</div>
+<div class="bg-surface-container p-8 rounded-xl hover:bg-surface-container-high transition-all group">
+<div class="text-secondary font-headline text-sm font-bold tracking-widest uppercase mb-4">Oct 21, 2024</div>
+<h3 class="text-2xl font-bold mb-2">Orion Nebula</h3>
+<p class="text-on-surface-variant text-sm mb-6">Stellar nursery active. Long exposure photography session.</p>
+<div class="flex items-center gap-2 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm">photo_camera</span>
+                            ASTRO-LAB B
+                        </div>
+</div>
+<div class="bg-surface-container p-8 rounded-xl hover:bg-surface-container-high transition-all group border border-primary/20 bg-primary/5">
+<div class="text-primary font-headline text-sm font-bold tracking-widest uppercase mb-4">Special Event</div>
+<h3 class="text-2xl font-bold mb-2">Leonid Meteors</h3>
+<p class="text-on-surface-variant text-sm mb-6">Annual shower peak. Group viewing and bonfire night.</p>
+<div class="flex items-center gap-2 text-primary text-xs font-bold">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+                            SUMMIT PEAK
+                        </div>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Star Map Placeholder -->
+<section class="py-24 px-10 relative">
+<div class="max-w-[1440px] mx-auto">
+<div class="bg-surface-container-low rounded-3xl overflow-hidden min-h-[600px] flex items-center justify-center relative border border-outline-variant/10">
+<!-- Faux Map Interface -->
+<div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1506318137071-a8e063b4bcc0?ixlib=rb-4.0.3&amp;auto=format&amp;fit=crop&amp;w=1600&amp;q=80')] opacity-40 mix-blend-screen" data-alt="deep space star field with thousands of stars and faint nebula trails"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-surface/40"></div>
+<div class="relative z-10 text-center px-6">
+<div class="mb-8 flex justify-center">
+<div class="w-24 h-24 rounded-full bg-primary/20 flex items-center justify-center animate-pulse">
+<span class="material-symbols-outlined text-primary text-5xl">explore</span>
+</div>
+</div>
+<h2 class="font-headline text-5xl font-bold mb-6">Interactive Star Map</h2>
+<p class="text-on-surface-variant max-w-xl mx-auto mb-10 text-lg">
+                            Real-time celestial navigation engine. Track orbital paths, identify constellations, and explore exoplanet databases in high definition.
+                        </p>
+<button class="bg-surface-bright border border-primary/40 text-primary hover:bg-primary hover:text-on-primary transition-all px-10 py-4 rounded-full font-bold uppercase tracking-widest text-sm">
+                            Initialize Mapping Engine
+                        </button>
+</div>
+<!-- Floating UI Controls -->
+<div class="absolute bottom-10 left-10 flex flex-col gap-4">
+<div class="glass-panel p-4 rounded-xl border border-outline-variant/20">
+<div class="text-[10px] text-secondary font-bold uppercase tracking-tighter mb-2">Live Telemetry</div>
+<div class="flex gap-4">
+<div><div class="text-xs text-on-surface-variant">RA</div><div class="font-mono text-sm">14h 29m 42s</div></div>
+<div><div class="text-xs text-on-surface-variant">DEC</div><div class="font-mono text-sm">-60° 50' 00"</div></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- School Space News -->
+<section class="py-24 px-10">
+<div class="max-w-[1440px] mx-auto">
+<div class="mb-16">
+<h2 class="font-headline text-4xl font-bold mb-4">School Space News</h2>
+<div class="w-20 h-1 bg-gradient-to-r from-primary to-transparent"></div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+<!-- News Card 1 -->
+<article class="group">
+<div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
+<img alt="High school students with telescope" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="diverse group of enthusiastic high school students gathered around a large professional telescope on a balcony at night" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsJzvvVOeAaTRag3cvrcopHzRzjKOtglfjWSmTxJJ2Xcgjg4Ahs1aTie1BmO8SASkhqU6wwTFdOBWwd-f4vad8-o8_UD7vECz_gb8zAQUwX3QYH9VUL2xrXoXDgUnasKQgRdUg2cz9_p0rYAUeR60dRNpXWPqejnPX9TVi5u9fuzFIKEIgTQaAFnaJ-i7TtRZKR604RHBYRT4iBmm9ow5pUxCoNW-EM-OaZBV8AwkJmZbetQwSFl1LViTVDwFZ20kjVjFPAsE_g-M"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md text-primary text-[10px] font-bold px-3 py-1 rounded-full border border-primary/20 uppercase">Student Research</span>
+</div>
+</div>
+<h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Local Students Discover New Asteroid in Belt</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">The Year 11 Physics cohort successfully identified an unmapped asteroid during last week's digital survey lab...</p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest"></div>
+<div class="text-sm">
+<div class="font-bold">Dr. Sarah Vance</div>
+<div class="text-xs text-on-surface-variant">Head of Research</div>
+</div>
+</div>
+</article>
+<!-- News Card 2 -->
+<article class="group">
+<div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
+<img alt="Satellite dish and aurora" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="large satellite dish silhouetted against a vibrant green and violet aurora borealis in a dark night sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBsWUn2ZIFw-AlDOmFaFstg-spsnJzPLgJ8yWQA99zi1-ScrEuw8Ch5ZX2qYdkmoRqfUXZGtFVTZwRYwo_-d-bG3N802zu8u8LYjLpU2giI9eZl2sBbMU0tLyqtH6h9CUvoO21Dbu51Gjp91xtWYUgQfAVhkN3hZg6KT7Sw13mKHcNJIBonnRvI0XBc2p0XGnmT-2XHbLc0MvdiLEXTy74HQApbr_Sz5fCdl95vcRGFQ1Y-InRIqqY67-mUHb4TN-StgvO35yG6qr4"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md text-secondary text-[10px] font-bold px-3 py-1 rounded-full border border-secondary/20 uppercase">Tech Update</span>
+</div>
+</div>
+<h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">Quantum Sensor Upgrade for Main Telescope</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Our flagship observatory just received a sensor upgrade that increases sensitivity to cosmic microwave backgrounds by 40%...</p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest"></div>
+<div class="text-sm">
+<div class="font-bold">James Thorne</div>
+<div class="text-xs text-on-surface-variant">Observatory Director</div>
+</div>
+</div>
+</article>
+<!-- News Card 3 -->
+<article class="group">
+<div class="relative rounded-2xl overflow-hidden mb-6 aspect-video">
+<img alt="Rocket launch long exposure" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="dramatic long exposure of a rocket launch arcing through a starry night sky leaving a glowing orange trail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1CxlKNiqHh4C1l6N3hL4yTNjF5dYPsq2PGBuG1rZOP6n5RMZayrGf9by_7hR4CbK1beAXqE50fjiFt6J7aaBz6twmATdlOpcQGaiKaBpHvIYW9hsaRlZzl0o8NVndE4yNlf2dLWRAPbP2Tjwgqlz1H7fC1GinsXZgl62EJMu_dVVI0dXPhtqwJbXXMdRO4F5rr5VtUzwDStqj5qv4A9payBE1SgZyOO1ohttAHpZefldtLh93X93h8MgFEtP0wfio3scbO9fJEB8"/>
+<div class="absolute top-4 left-4">
+<span class="bg-surface/80 backdrop-blur-md text-primary text-[10px] font-bold px-3 py-1 rounded-full border border-primary/20 uppercase">Global Mission</span>
+</div>
+</div>
+<h3 class="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">NASA Partnership: Tracking the Artemis Path</h3>
+<p class="text-on-surface-variant leading-relaxed mb-6">Our club has been selected as a community monitoring station for the next lunar approach mission...</p>
+<div class="flex items-center gap-3">
+<div class="w-8 h-8 rounded-full bg-surface-container-highest"></div>
+<div class="text-sm">
+<div class="font-bold">NASA Outreach</div>
+<div class="text-xs text-on-surface-variant">External Partner</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0c0e18] w-full py-20 px-10 tonal-shift border-t border-cyan-900/15 font-['Inter'] text-sm">
+<div class="max-w-[1440px] mx-auto flex flex-col md:flex-row justify-between items-start gap-12">
+<div class="max-w-sm">
+<div class="font-['Space_Grotesk'] font-bold text-slate-200 text-2xl mb-6">Celestial Observer</div>
+<p class="text-slate-500 leading-relaxed mb-8">Dedicated to the study, preservation, and celebration of the night sky. Helping humanity look up since 1994.</p>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center hover:bg-primary/10 hover:border-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">public</span>
+</div>
+<div class="w-10 h-10 rounded-full border border-outline-variant/20 flex items-center justify-center hover:bg-primary/10 hover:border-primary transition-all cursor-pointer">
+<span class="material-symbols-outlined text-sm">alternate_email</span>
+</div>
+</div>
+</div>
+<div class="grid grid-cols-2 gap-12 lg:gap-24">
+<div>
+<h4 class="font-bold text-on-surface mb-6">Explore</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-slate-500 hover:text-cyan-400 transition-colors" href="#">Observatory</a></li>
+<li><a class="text-slate-500 hover:text-cyan-400 transition-colors" href="#">Star Map</a></li>
+<li><a class="text-slate-500 hover:text-cyan-400 transition-colors" href="#">Events</a></li>
+<li><a class="text-slate-500 hover:text-cyan-400 transition-colors" href="#">Research</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-bold text-on-surface mb-6">Support</h4>
+<ul class="flex flex-col gap-4">
+<li><a class="text-slate-500 hover:text-cyan-400 transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="text-slate-500 hover:text-cyan-400 transition-colors" href="#">Terms of Service</a></li>
+<li><a class="text-slate-500 hover:text-cyan-400 transition-colors" href="#">Contact</a></li>
+<li><a class="text-slate-500 hover:text-cyan-400 transition-colors" href="#">Support</a></li>
+</ul>
+</div>
+</div>
+<div class="bg-surface-container p-8 rounded-2xl w-full md:w-auto">
+<h4 class="font-bold text-on-surface mb-4">Cosmic Briefing</h4>
+<p class="text-xs text-slate-500 mb-6">Monthly digest of celestial events.</p>
+<div class="flex gap-2">
+<input class="bg-surface-container-highest border-none rounded-lg py-2 px-4 text-sm focus:ring-1 focus:ring-primary/40" placeholder="Email address" type="email"/>
+<button class="bg-primary text-on-primary p-2 rounded-lg"><span class="material-symbols-outlined">send</span></button>
+</div>
+</div>
+</div>
+<div class="max-w-[1440px] mx-auto mt-20 pt-8 border-t border-outline-variant/5 text-slate-600 text-xs flex flex-col md:flex-row justify-between items-center gap-4">
+<div>© 2024 Celestial Observer Society. All rights reserved.</div>
+<div class="flex gap-6">
+<span>40.7128° N, 74.0060° W</span>
+<span>Altitude: 450m</span>
+</div>
+</div>
+</footer>
+</body></html>
